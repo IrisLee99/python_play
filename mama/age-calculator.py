@@ -1,7 +1,7 @@
 age = int(input("Enter your age: "))
 print("You will be", age + 1, "years old next year.")
 
-birth_year = 2024 - age
+birth_year = 2025 - age
 print("You were born in approximately", birth_year)
 
 if age < 18:
