@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Rock, Paper, Scissors</title>
+	<style>
+		body { font: 18px system-ui, sans-serif; text-align: center; margin: 3rem auto; max-width: 32rem; }
+		button { font-size: 1.1rem; padding: .7rem 1rem; margin: .35rem; cursor: pointer; }
+		#result { min-height: 3rem; margin: 1.5rem 0; }
+	</style>
+</head>
+<body>
+	<h1>Rock, Paper, Scissors</h1>
+	<p>Choose your move:</p>
+	<button data-move="rock">🪨 Rock</button>
+	<button data-move="paper">📄 Paper</button>
+	<button data-move="scissors">✂️ Scissors</button>
+	<div id="result" aria-live="polite">First to play wins!</div>
+	<p>Score: You <b id="you">0</b> – Computer <b id="computer">0</b></p>
+	<script>
+		const moves = ['rock', 'paper', 'scissors'];
+		let you = 0, computer = 0;
+		const result = document.querySelector('#result');
+		document.querySelectorAll('button').forEach(button => button.onclick = () => {
+			const player = button.dataset.move;
+			const opponent = moves[Math.floor(Math.random() * moves.length)];
+			let message = `You chose ${player}; computer chose ${opponent}. `;
+			if (player === opponent) message += 'Tie!';
+			else if ((player === 'rock' && opponent === 'scissors') ||
+							 (player === 'paper' && opponent === 'rock') ||
+							 (player === 'scissors' && opponent === 'paper')) {
+				you++; message += 'You win!';
+			} else { computer++; message += 'Computer wins!'; }
+			result.textContent = message;
+			document.querySelector('#you').textContent = you;
+			document.querySelector('#computer').textContent = computer;
+		});
+	</script>
+</body>
+</html>
