@@ -1,8 +1,9 @@
-expenses = [11, 8.75, 5.66, 120, 330]
+expenses = []
 
-sum = 0
+for i in range(7):
+    expense = float(input(f"Enter expense {i+1}: "))
+    expenses.append(expense)
 
-for expense in expenses:
-    sum += expense
+total = sum(expenses)
 
-print(sum)
+print('you spent: £', total)
