@@ -12,7 +12,7 @@ acronyms["CIA2"] = 'Central Intelligence Agency Station'
 del acronyms["CIA"]
 
 defination = acronyms["CIA2"]
-translation = acronyms["IDN"] + ' what happened ' + acronyms["WH"]
+translation = acronyms["IDN"] + ' what happened ' + acronyms["TBH"]
 
 if translation:
     print(translation)
