@@ -1,8 +1,12 @@
-temperature = 75
+import requests
 
-if temperature > 85:
-    print("It's hot outside.")
-elif temperature < 60:
-    print("It's cold outside.")
-else:
-    print("The weather is pleasant.")
+city = 'London'
+url = 'http://api.weatherapi.com/v1/current.json?key=2d2f25fe57a14ccbbd9151141262210&q={}'.format(city)
+
+response = requests.get(url)
+
+weather_json = response.json()
+temp = weather_json['current']['temp_c']
+description = weather_json['current']['condition']['text']
+
+print('Today\'s weather in {}: {}, {}°C'.format(city, description, temp))
